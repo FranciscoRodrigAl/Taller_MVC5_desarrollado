@@ -1,0 +1,40 @@
+﻿@using taller.Models
+@*Le decimos a nuestra vista que clase vamos a utilizar como modelo*@
+@model IEnumerable<Persona>
+
+@{
+    ViewBag.Title = "Listado de Contacto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>ListContacto</h2>
+
+@if (Model.Any())
+{
+    <br />
+    <br />
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Telefono</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Nombre</td>
+                    <td>@item.Email</td>
+                    <td>@item.Telefono</td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+}
+else
+{ @Html.Raw("Error al Crear el modelo")}
